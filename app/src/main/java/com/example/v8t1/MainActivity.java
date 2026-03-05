@@ -48,4 +48,13 @@ public class MainActivity extends AppCompatActivity {
             resultText.setText(String.format("£%.2f", euros * GBP_RATE));
         });
     }
+    private Double parseEuro(String s) {
+        s = s.trim().replace(',', '.');
+        if (s.isEmpty()) return null;
+        try {
+            return Double.parseDouble(s);
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
